@@ -1,5 +1,13 @@
 <% provide(:title) %>
-<h1>Hello, Rails!</h1>
-<p>
-  I am learning Rails from the tutorial linked <a href="https://www.railstutorial.org/book/static_pages">here!</a>
-</p>
+<div class="center jumbotron">
+        <h1>Hello, Rails!</h1>
+        <p>
+        I am learning Rails from the tutorial linked <a href="https://www.railstutorial.org/book/static_pages">here!</a>
+        </p>
+
+        <a href="#" class="btn btn-lg btn-primary">Sign up Now!</a>
+</div>
+
+<div>
+<%= link_to image_tag("rails.png", alt: "Rails logo"),  'http://rubyonrails.org/' %>
+</div>
