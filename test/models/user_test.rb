@@ -62,4 +62,17 @@ class UserTest < ActiveSupport::TestCase
     assert @user.authenticate("foobar")
     assert_not @user.authenticate("thisorthat")
   end
+
+  test "email should be lowercased before saving to db" do
+    @user.email = "Foo@bar.com"
+    @user.save
+    assert_equal @user.email.downcase, @user.reload.email, "Email was not lowercase"
+  end
+
+  test "don't allow consequetive dots in email domain address" do
+    @user.email = "foo@bar..baz"
+    @user.save
+    assert_not @user.valid?
+  end
+
 end
